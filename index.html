@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            color: #fafafa;
+            transition-duration: 0.4s;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #202020;
+        }
+
+        .container {
+            text-align: center;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            align-items: center;
+            justify-content: space-evenly;
+                flex-direction: row;
+
+        }
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+        h1 {
+            margin-bottom: 4vh !important; 
+            font-size: 1.6rem !important;
+        }
+
+        h2 {
+            margin-bottom: 4vh !important; 
+            font-size: 4rem !important;
+        }
+         button {
+            width: 55px !important;
+            height: 55px !important;
+             font-size: 2rem !important;
+		}
+}
+        #reset {
+            transform: rotate(-135deg);
+        }
+
+        button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+            border: none;
+            font-size: 2.2rem;
+            text-align: center;
+            background-color: #191919;
+            margin: 0.5rem;
+            outline: none;
+        }
+
+        h1 {
+            margin-bottom: 15vh;
+            font-size: 2.3rem;
+        }
+
+        h2 {
+            margin-bottom: 7vh;
+            font-size: 6rem;
+        }
+        #txt1 {
+			color: #4cbf41;
+			}
+        #txt2 {
+			color: #c94732;
+			}
+        #add:hover {
+            background-color: #4cbf41;
+        }
+
+        #remove:hover {
+            background-color: #c94732;
+        }
+
+        #reset:hover {
+            background-color: #32adc9;
+        }
+        #result {
+			width: 12rem !important;
+			font-size: 1.5rem !important;
+		}
+        #result:hover {
+            background-color: #4cbf41;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+		<div class="counter1">
+        <h1>Correct Answers</h1>
+        <h2 id="txt1">0</h2>
+        <button class="btn" onclick="remove()" id="remove">-</button>
+        <button class="btn" onclick="reset()" id="reset">⟳</button>
+        <button class="btn" onclick="add()" id="add">+</button>
+
+    </div>
+    		<div class="counter2">
+
+    <h1>Wrong Answers</h1>
+        <h2 id="txt2">0</h2>
+        <button class="btn" onclick="remove2()" id="remove">-</button>
+        <button class="btn" onclick="reset2()" id="reset">⟳</button>
+        <button class="btn" onclick="add2()" id="add">+</button>
+
+    </div>
+            <button class="btn" onclick="result()" id="result">view result</button>
+
+    </div>
+</body>
+<script>
+    let num1 = 0;
+    let num2 = 0;
+    let txt1 = document.querySelector('#txt1');
+        let txt2 = document.querySelector('#txt2');
+
+    add = () => {
+        num1++;
+        txt1.innerHTML = num1;
+ 
+    };
+    remove = () => {
+        num1--;
+        txt1.innerHTML = num1;
+  
+    };
+    reset = () => {
+        num1 = 0;
+        txt1.innerHTML = num1;
+
+    };
+add2 = () => {
+        num2++;
+        txt2.innerHTML = num2;
+    
+    };
+    remove2 = () => {
+        num2--;
+        txt2.innerHTML = num2;
+   
+    };
+    reset2 = () => {
+        num2 = 0;
+        txt2.innerHTML = num2;
+ 
+    };
+
+
+ 
+    txt1.innerHTML = num1;
+result =() => {
+	let resultButton = document.querySelector("#result");
+	resultButton.innerHTML ="you got " + String((num1*4) - num2) + " marks";
+	}
+
+</script>
+
+</html>
